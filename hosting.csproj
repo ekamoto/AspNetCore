@@ -7,6 +7,11 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore" Version="2.0.1" />
+    <!-- 
+    Instala mais do que o necessário para o caso, include genérico
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" /> 
+    -->
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.0.1" />
   </ItemGroup>
 
 </Project>
