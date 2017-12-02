@@ -11,10 +11,9 @@ namespace hosting
         {
             
             var host = new WebHostBuilder().
-                        UseKestrel().
-                        Configure(app => {
-                            app.Run(context => context.Response.WriteAsync("Criando um Host: Leandro Shindi Ekamoto"));
-                        }).Build();
+                        UseKestrel()
+                        .UseStartup<StartUp>()
+                        .Build();
             host.Run();    
         }
     }
