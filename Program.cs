@@ -9,7 +9,7 @@ namespace hosting
     {
         static void Main(string[] args)
         {
-            
+            Console.WriteLine("Inicio");
             var host = new WebHostBuilder().
                         UseKestrel()
                         .UseStartup<StartUp>()
