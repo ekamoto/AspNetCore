@@ -7,19 +7,12 @@ namespace hosting
     {
         public void Configure(IApplicationBuilder app)
         {
-            // Adicionando uma função anonima
-            app.Use(async(context, next) => {
+            // A sequência inserida é relevante
 
-                // Alterando a resposta da requisição
-                context.Response.Headers.Add("Middleware", "Aprendendo");
-
-                // Invocando o próximo Middle
-                await next.Invoke();
-            });
-
+            app.UseMiddleware<MyMiddleware>();
 
             // Esse código é um middle
-            app.Run(context=>context.Response.WriteAsync("Hello"));
+            app.Run(context=>context.Response.WriteAsync("Hello | "));
         }
     }
 }
