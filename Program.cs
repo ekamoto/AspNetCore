@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -13,6 +14,7 @@ namespace hosting
             var host = new WebHostBuilder().
                         UseKestrel()
                         .UseStartup<StartUp>()
+                        .UseContentRoot(Directory.GetCurrentDirectory())//Avisando o host que tem conteúdo na raiz que será utilizado
                         .Build();
             host.Run();    
         }
