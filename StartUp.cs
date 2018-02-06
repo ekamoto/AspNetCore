@@ -8,19 +8,11 @@ namespace hosting
 {
     public class StartUp
     {
-        private IConfigurationRoot _configuration;
+        public IConfiguration Configuration { get;set; }
 
-        public StartUp(IHostingEnvironment env)
+        public StartUp(IConfiguration configuration)
         {
-
-            var builder = new ConfigurationBuilder()
-            .SetBasePath(env.ContentRootPath)
-            .AddJsonFile("appsettings.json");
-
-            builder.AddEnvironmentVariables();
-
-            _configuration = builder.Build();
-
+            Configuration = configuration;
         }
 
         public void Configure(IApplicationBuilder app)
@@ -28,7 +20,7 @@ namespace hosting
             Console.WriteLine("StartUp");
             // A sequência inserida é relevante
 
-            var applicationName = _configuration.GetValue<string>("ApplicationName");
+            var applicationName = Configuration.GetValue<string>("ApplicationName");
 
             //app.UseMiddleware<MyMiddleware>();
             app.UseMiddleware<ResponseTime>();
