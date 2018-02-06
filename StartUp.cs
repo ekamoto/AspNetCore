@@ -24,6 +24,7 @@ namespace hosting
 
             //app.UseMiddleware<MyMiddleware>();
             app.UseMiddleware<ResponseTime>();
+            app.UseStaticFiles();
             
             // Esse código é um middle
             app.Run(context=>context.Response.WriteAsync($"Hello ApplicationName: {applicationName}"));
